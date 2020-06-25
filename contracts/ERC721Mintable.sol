@@ -106,7 +106,7 @@ contract ERC721 is Pausable, ERC165 {
     event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
 
     event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
-    
+
     using SafeMath for uint256;
     using Address for address;
     using Counters for Counters.Counter;
@@ -224,10 +224,10 @@ contract ERC721 is Pausable, ERC165 {
     function _mint(address to, uint256 tokenId) internal {
         require(to != address(0), "invalid address");
         require(!_exists(tokenId), "token already exists");
-  
+
         _tokenOwner[tokenId] = to;
         _ownedTokensCount[to].increment();
-        
+
         emit Transfer(address(0), to, tokenId);
     }
 
@@ -236,7 +236,7 @@ contract ERC721 is Pausable, ERC165 {
     function _transferFrom(address from, address to, uint256 tokenId) internal {
         require(_tokenOwner[tokenId] == from, "You do not own this token");
         require(to != address(0), "Invalid target");
-        
+
         delete _tokenApprovals[tokenId];
 
         _tokenOwner[tokenId] = to;
@@ -447,7 +447,7 @@ contract ERC721Enumerable is ERC165, ERC721 {
 }
 
 contract ERC721Metadata is ERC721Enumerable, usingOraclize {
-    
+
     string private _name;
 
     string private _symbol;
