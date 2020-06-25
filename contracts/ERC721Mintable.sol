@@ -11,13 +11,14 @@ contract Ownable {
 
     event TransferOwnership(address indexed oldOwner, address indexed newOwner);
 
-    constructor() {
+    constructor() internal {
         _owner = msg.sender;
         emit TransferOwnership(address(0), msg.sender);
     }
 
     modifier onlyOwner() {
         require(_owner == msg.sender, "Restricted owner access");
+        _;
     }
 
     function getOwner() public view returns (address) {
@@ -26,8 +27,8 @@ contract Ownable {
 
     function transferOwnership(address newOwner) public onlyOwner {
         require(newOwner != address(0), "Forbidden access");
-        emit TransferOwnership(_owner, _newOwner);
-        _owner = newOnwer;
+        _owner = newOwner;
+        emit TransferOwnership(_owner, newOwner);
     }
 }
 
@@ -37,16 +38,18 @@ contract Pausable is Ownable {
     event Paused(address sender);
     event Unpaused(address sender);
 
-    constructor() Ownable(){
+    constructor() Ownable() internal {
         _paused = false;
     }
 
     modifier whenNotPaused() {
-        require(!_paused, "Contract is paused")
+        require(!_paused, "Contract is paused");
+        _;
     }
 
     modifier paused() {
-        require(_paused, "Contract must be paused")
+        require(_paused, "Contract must be paused");
+        _;
     }
 
     function setPauseState(bool state) external onlyOwner {
@@ -498,7 +501,7 @@ contract CustomERC721Token is ERC721Metadata {
 
     string constant BASE_TOKEN_URI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
 
-    constructor(string memory name, string memory symbol) ERC721Metadata(name, symbol, BASE_TOKEN_URI) {
+    constructor(string memory name, string memory symbol) ERC721Metadata(name, symbol, BASE_TOKEN_URI) public {
 
     }
 

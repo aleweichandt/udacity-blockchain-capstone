@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "truffle compile",
-    "migrate": "truffle compile",
+    "migrate": "truffle migrate",
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +13,9 @@
   "author": "pk <pkrasam@gmail.com> (https://ipfs.infura.io/ipfs/QmSXiR9Khm3yo1J67nUopvVBxFJ8YGN2fUGZ34Etr3m92x/)",
   "license": "MIT",
   "devDependencies": {
-    "lite-server": "2.4.0"
+    "@truffle/hdwallet-provider": "^1.0.35",
+    "lite-server": "2.4.0",
+    "truffle": "^5.1.31"
   },
   "dependencies": {
     "openzeppelin-solidity": "2.2.0",
