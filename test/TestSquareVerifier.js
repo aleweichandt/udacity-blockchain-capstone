@@ -5,3 +5,26 @@
 
     
 // Test verification with incorrect proof
+const SquareVerifier = artifacts.require('SquareVerifier');
+const proofData = require('./proof.json');
+
+contract('SquareVerifier', accounts => {
+    const owner = accounts[0];
+    const { proof: { a, b, c }, valid, invalid } = proofData;
+
+    describe('SquareVerifier test', () => {
+        beforeEach(async () => {
+            this.contract = await SquareVerifier.new({from: owner});
+        });
+
+        it('should return true for correct proof', async () => {
+            const result = await this.contract.verifyTx.call(a, b, c, valid );
+            assert.equal(result, true, "Should validate valid proof");
+        });
+
+        it('should return false for incorrect proof', async () => {
+            const result = await this.contract.verifyTx.call(a, b, c, invalid );
+            assert.equal(result, false, "Should invalidte false proof");
+        });
+    });
+});
