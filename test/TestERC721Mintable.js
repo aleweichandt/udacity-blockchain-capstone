@@ -13,8 +13,8 @@ contract('TestERC721Mintable', accounts => {
         beforeEach(async function () { 
             this.contract = await CustomERC721Token.new("test tkns", "TEST", {from: account_one});
 
-            await this.contract.mint(account_two, tkn_id_one, `tokens/${tkn_id_one}`, {from: account_one});
-            await this.contract.mint(account_two, tkn_id_two, `tokens/${tkn_id_two}`, {from: account_one});
+            await this.contract.mint(account_two, tkn_id_one, {from: account_one});
+            await this.contract.mint(account_two, tkn_id_two, {from: account_one});
             // TODO: mint multiple tokens
         });
 
@@ -30,7 +30,7 @@ contract('TestERC721Mintable', accounts => {
 
         // token uri should be complete i.e: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1
         it('should return token uri', async function () { 
-            const expected = `https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/tokens/${tkn_id_one}`;
+            const expected = `https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/${tkn_id_one}`;
             const uri = await this.contract.tokenURI.call(tkn_id_one);
             assert.equal(uri, expected, "Invalid uri for token");
         });
@@ -50,7 +50,7 @@ contract('TestERC721Mintable', accounts => {
         it('should fail when minting when address is not contract owner', async function () { 
             let exception = null;
             try {
-                await this.contract.mint(account_two, tkn_id_three, `tokens/${tkn_id_three}`, {from: account_two});
+                await this.contract.mint(account_two, tkn_id_three, {from: account_two});
             } catch(e) {
                 exception = e;
             }

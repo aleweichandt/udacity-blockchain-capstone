@@ -490,9 +490,9 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
         return _tokenURIs[tokenId];
     }
 
-    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal {
+    function _setTokenURI(uint256 tokenId) internal {
         require(_exists(tokenId), "URI set of nonexistent token");
-        _tokenURIs[tokenId] = strConcat(_baseTokenURI, _tokenURI);
+        _tokenURIs[tokenId] = strConcat(_baseTokenURI, uint2str(tokenId));
     }
 
 }
@@ -505,9 +505,9 @@ contract CustomERC721Token is ERC721Metadata {
 
     }
 
-    function mint(address to, uint256 tokenId, string memory tokenURI) public onlyOwner returns (bool) {
+    function mint(address to, uint256 tokenId) public onlyOwner returns (bool) {
         _mint(to, tokenId);
-        _setTokenURI(tokenId, tokenURI);
+        _setTokenURI(tokenId);
         return true;
     }
 }

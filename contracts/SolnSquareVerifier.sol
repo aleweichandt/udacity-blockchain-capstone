@@ -33,13 +33,13 @@ contract SolnSquareVerifier is CustomERC721Token {
     }
 
     function mintToken(
-        address to, uint256 tokenId, string memory tokenURI, uint[2] memory a, uint[2][2] memory b, uint[2] memory c, uint[2] memory input
+        address to, uint256 tokenId, uint[2] memory a, uint[2][2] memory b, uint[2] memory c, uint[2] memory input
     ) public whenNotPaused {
         bytes32 key = keccak256(abi.encodePacked(a, b, c, input));
         require(uniqueSolutions[key].to == address(0), "Solution in use");
         require(verifierContract.verifyTx(a, b, c, input), "Invalid solution");
 
-        mint(to, tokenId, tokenURI);
+        mint(to, tokenId);
         _addSolution(to, tokenId, key);
     }
 }
