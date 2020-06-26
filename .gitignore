@@ -3,3 +3,4 @@ build
 zokrates/build
 
 .secret
+zokrates/proofs.json
