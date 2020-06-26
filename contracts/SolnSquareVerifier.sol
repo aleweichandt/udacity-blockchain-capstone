@@ -11,10 +11,10 @@ contract SolnSquareVerifier is CustomERC721Token {
         uint256 tokenId;
         address to;
     }
-    Solution[] submittedSolutions;
-    mapping(bytes32 => Solution) uniqueSolutions;
+    Solution[] private submittedSolutions;
+    mapping(bytes32 => Solution) private uniqueSolutions;
 
-    event SolutionAdded(address indexed to,uint256 indexed tokenId,bytes32 indexed key);
+    event SolutionAdded(address indexed to, uint256 indexed tokenId, bytes32 indexed key);
 
     constructor(
         address verifierAddress, string memory name, string memory symbol
@@ -22,10 +22,13 @@ contract SolnSquareVerifier is CustomERC721Token {
         verifierContract = ISquareVerifier(verifierAddress);
     }
 
-    function _addSolution(address _to, uint256 _tokenId, bytes32 _key) internal{
-        Solution memory _soln = Solution({tokenId : _tokenId, to : _to});
-        submittedSolutions.push(_soln);
-        uniqueSolutions[_key] = _soln;
+    function _addSolution(address _to, uint256 _tokenId, bytes32 _key) internal {
+        Solution memory _solution = Solution({
+            tokenId: _tokenId,
+            to: _to
+        });
+        submittedSolutions.push(_solution);
+        uniqueSolutions[_key] = _solution;
         emit SolutionAdded(_to, _tokenId, _key);
     }
 
