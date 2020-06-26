@@ -2,7 +2,7 @@
 var SquareVerifier = artifacts.require("./SquareVerifier.sol");
 var SolnSquareVerifier = artifacts.require("./SolnSquareVerifier.sol");
 
-const proofs = require("../zokrates/proofs.json");
+const proofs = require("./proofs.json");
 
 const tokenName = "Udacity AW Token";
 const tokenSymbol = "UAWT";
