@@ -5,7 +5,6 @@ The capstone will build upon the knowledge you have gained in the course in orde
 ## How to deploy
 
 * add missing `.secret` file and `infura api key` if required.
-* provide provide an extra `zokrates/proofs.json` which needs to be an array of zokrates proofs to mint each token you prefer. Otherwise you can keep it as an empty array.
 * `npm run compile` to compile your contracts
 * `npm run migrate` to push your contracts to your network (plase use `-- --network <network>` to choose prefered network)
 
@@ -20,7 +19,7 @@ In addition to test everything works as expected you can run:
 ## Rinkeby Deployment Info
 
 ### Contract address
-[`0x8A4FaF9278630E3508599A273AAaB6cd46493097`](https://rinkeby.etherscan.io/address/0x8A4FaF9278630E3508599A273AAaB6cd46493097)
+[`0xFbC1B643E74598a04F473ff4362d5Ee714F66B13`](https://rinkeby.etherscan.io/address/0xFbC1B643E74598a04F473ff4362d5Ee714F66B13)
 
 ### Contract Owner
 [`0xf072d9B4bF998960E609fabc6445567460464311`](https://rinkeby.etherscan.io/address/0xf072d9B4bF998960E609fabc6445567460464311)
@@ -30,14 +29,22 @@ In addition to test everything works as expected you can run:
 [OpenSea Profile](https://rinkeby.opensea.io/accounts/0xd3a790ece43c9446be24b54e1c87854da8ab9b78)
 
 ### OpenSea Sale
-https://rinkeby.opensea.io/bundles/5x-bundle-U2b
+https://rinkeby.opensea.io/assets/udacity-aw-token-v2-1
 
 ### Opensea Buyer address
 [`0x08b27Ff0b2a1Df5D9555852c3D0f27f272D243dB`](https://rinkeby.etherscan.io/address/0x08b27Ff0b2a1Df5D9555852c3D0f27f272D243dB)
 [OpenSea Profile](https://rinkeby.opensea.io/accounts/0x08b27ff0b2a1df5d9555852c3d0f27f272d243db)
 
 ### Buy transaction
-[`0xa1165593320b39e1656914590f4d97653c1bb4e6743b2ac0c89a0a19e1a0d36e`](https://rinkeby.etherscan.io/tx/0xa1165593320b39e1656914590f4d97653c1bb4e6743b2ac0c89a0a19e1a0d36e)
+[Item 1](https://rinkeby.etherscan.io/tx/0x093f71e6ae7a818a15c97524214de3059773235037c397e2718f1bbe8987d033)
+
+[Item 2](https://rinkeby.etherscan.io/tx/0x264342e8eea6a0217c97956a3bbd79f09ea2c3e72102458ab0d07e3ac30c98b8)
+
+[Item 3](https://rinkeby.etherscan.io/tx/0x47f34848f64aad65269d9354f792ca617d086a8d60fafe1bbae857e6e8d86900)
+
+[Item 4](https://rinkeby.etherscan.io/tx/0x11125849be487598070c0f793490208be8f5cd50fcce3e37f85f876092bc258c)
+
+[Item 5](https://rinkeby.etherscan.io/tx/0x93339542ab2ee2d9c517c811efcc21cef3028c4a1d1c92f46a38b8ce4278efeb)
 
 # Project Resources
 
